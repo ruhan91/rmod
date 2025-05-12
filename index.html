@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>App Mod Hub</title>
-  <style>
+ <style>
     body {
       font-family: 'Segoe UI', sans-serif;
       margin: 0;
@@ -23,29 +23,60 @@
 
     header h1 {
       margin: 0;
-      color: #f39c12;
+      color: #00ccff;
     }
 
     .tabs {
       display: flex;
       justify-content: center;
       background: #222;
+      padding: 10px 0;
     }
 
     .tab-button {
       padding: 15px 30px;
       cursor: pointer;
+      font-weight: bold;
       border-radius: 50px;
       background: #222;
       color: #ccc;
-      border: none;
-      outline: none;
-      transition: 0.3s;
+      border: 2px solid #444;
+      margin: 0 10px;
+      font-size: 16px;
+      transition: 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .tab-button::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 200%;
+      height: 100%;
+      background: linear-gradient(120deg, transparent, rgba(243, 156, 18, 0.2), transparent);
+      transition: left 0.4s ease-in-out;
+      z-index: 0;
+    }
+
+    .tab-button:hover::before {
+      left: 0;
+    }
+
+    .tab-button:hover {
+      color: #fff;
+      border-color: #f39c12;
+      box-shadow: 0 0 10px #f39c12, 0 0 20px #f39c12;
+      animation: glow 1.5s infinite alternate, bounce 0.8s ease-in-out;
     }
 
     .tab-button.active {
       background: #f39c12;
-      color: #000;
+      color: #ffffff;
+      box-shadow: 0 0 10px #f39c12, 0 0 20px #f39c12;
     }
 
     .tab-content {
@@ -62,20 +93,25 @@
     .app-card {
       background: #1e1e1e;
       border: 1px solid #333;
-      border-radius: 10px;
+      border-radius: 12px;
       padding: 20px;
       margin: 20px 0;
+      box-shadow: 0 0 10px #000;
+      transition: 0.3s ease;
     }
 
+   
     .app-card h3 {
       margin: 0 0 10px;
       display: flex;
       align-items: center;
       gap: 10px;
+      font-size: 1.2em;
     }
 
     .app-card p {
       margin: 0 0 15px;
+      color: #ccc;
     }
 
     .app-logo {
@@ -86,17 +122,37 @@
 
     .download-btn {
       background: #f39c12;
-      color: #000;
-      padding: 10px 20px;
+      color: #ffffff;
+      padding: 10px 25px;
       border: none;
-      border-radius: 5px;
+      border-radius: 8px;
+      font-weight: bold;
       cursor: pointer;
-      transition: 0.3s;
+      font-size: 16px;
+      transition: 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
     }
 
-    .download-btn:hover {
-      background: #e67e22;
+    .download-btn::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 200%;
+      height: 100%;
+      background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.4s ease-in-out;
+      z-index: 0;
     }
+
+    .download-btn:hover::before {
+      left: 0;
+    }
+
+   
 
     footer {
       background: #1f1f1f;
@@ -113,15 +169,42 @@
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes glow {
+      0% {
+        box-shadow: 0 0 5px #f39c12, 0 0 10px #f39c12;
+      }
+      100% {
+        box-shadow: 0 0 20px #f39c12, 0 0 30px #f39c12;
+      }
+    }
+
+    @keyframes bounce {
+      0% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+      100% {
+        transform: translateY(0);
+      }
     }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>App Mod Hub</h1>
+    <h1>APP MODZ</h1>
   </header>
 
   <div class="tabs">
@@ -308,13 +391,6 @@
 
 
 
-
-
-
-
-
-
-
   <div id="pc" class="tab-content">
     <div class="app-card">
       <h3><img src="https://images.sftcdn.net/images/t_app-icon-s/p/c78b1e6e-96bf-11e6-9f04-00163ed833e7/2882878425/vlc-media-player-Download-VLC-Media-Player.jpg" class="app-logo" alt="VLC Logo">VLC Media Player</h3>
@@ -334,7 +410,7 @@
 
   <footer>
     <div>Developed By Ruhan</div>
-    &copy; 2025 App Mod Hub. All rights reserved.
+    &copy; 2025 App Mod. All rights reserved.
   </footer>
 
   <script>
